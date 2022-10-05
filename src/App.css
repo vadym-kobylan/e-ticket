@@ -77,39 +77,65 @@ ul{
     display: flex;
     padding-right: 100px;
 }
-
-input[type=radio] {
+  
+input[type="radio"]{
     display: none;
 }
-  
-input[type=radio]:checked + label {
+
+
+input[type="radio"]:checked + label{
     background-color: #fff;
     color: #605DEC;
 }
-  
-.language__btn {
-  margin-left: 9px;
-  position: relative;
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  padding: 3px 19px 6px;
-  line-height: 10px;
+
+.changelng{
+    margin-left:9px;
+    position: relative;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 4px 19px 6px ;
 }
-
-
-  
-.language__btn:hover {
+.changelng:hover{
     background-color: #fff;
     color: #605DEC;
     cursor: pointer;
 }
 
+/* .language__btn {
+    margin-left: 9px;
+    position: relative;
+    color: #fff;
+    background-color: #605DEC;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    padding: 3px 19px 6px;
+    line-height: 10px;
+    transition: all 0.2s ease;
+}
+
+.language__btnOn {
+    margin-left: 9px;
+    position: relative;
+    color: #605DEC;
+    background-color: #fff;
+    border: 2px solid #605DEC;
+    border-radius: 5px;
+    padding: 3px 19px 6px;
+    line-height: 10px;
+    transition: all 0.2s ease;
+}
+ 
+.language__btn:hover {
+    background-color: #fff;
+    color: #605DEC;
+    cursor: pointer;
+} */
+
 
 /*------------Main-------------*/
 
-main{
-    
+main{  
     background: no-repeat center/80% url('../src/images/bg.jpg');
     background-size: cover;
     width: 100%;
@@ -117,7 +143,6 @@ main{
 }
 
 .search{
-    
     padding-top: 200px;
     display: flex;
     justify-content: center;
@@ -174,6 +199,7 @@ main{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    pointer-events: none;
 }
 
 .search__btn{
@@ -189,5 +215,77 @@ main{
 }
 
 .search__btn:hover{
-    background-color: #514fe9;
+    background-color: #423fc2;
+}
+
+/*-------------PopUp-------------*/
+.popup__infocontainer{
+    margin: 0px 30px;
+    display: flex;
+    margin-bottom: 3px
+}
+
+.par{
+    margin: 0;
+    margin-right: 115px;
+}
+.par.second{
+    margin-right: 130px;
+}
+.par.third{
+    margin-right: 80px;
+}
+
+
+.popup__container{
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:flex-end;
+    padding: auto 0;
+    font-family: e-Ukraine;
+    font-size: 16px;
+}
+
+.pop{
+    font-family: e-Ukraine;
+    font-size: 13px;
+    border: 1px #605DEC solid;
+    height: 24px;
+    border-left: none;
+}
+.pop.from{
+    border-left: 1px #605DEC solid;
+}
+
+.pop.date{
+    height: 26px;
+}
+
+.order__btn{
+    font-family: e-Ukraine-reg;
+    font-size: 12px;
+    height: 28px;
+    border-radius: 3px;
+    border: #605DEC 1px solid;
+    color: #fff;
+    background-color: #605DEC;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.order__btn:hover{
+    background-color: #423fc2;
+}
+
+.form__item{
+    display:grid;
+    padding: 0;
+    margin: 0;
+    justify-content:center;
+}
+
+.topraw{
+    display:grid;
+    justify-content:center;
 }
