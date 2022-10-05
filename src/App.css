@@ -29,7 +29,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 190px;
     
 }
 .logo{
@@ -147,7 +147,8 @@ main{
     display: flex;
     justify-content: center;
     font-family: e-Ukraine;
-    font-size: 14px;   
+    font-size: 14px;
+    gap: 25px;
 }
 
 .dropdown{
@@ -200,6 +201,7 @@ main{
     margin-left: auto;
     margin-right: auto;
     pointer-events: none;
+    user-select:none;
 }
 
 .search__btn{

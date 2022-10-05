@@ -1,10 +1,21 @@
 import './App.css';
-import logo from './images/logo.svg';
 import { useTranslation } from 'react-i18next';
-import text_ukr from './images/text.svg';
 import React, { useState } from 'react';
-import Modal from './Modal/modal';
+import Modal from './components//Modal/modal';
+import eng_text from './images/eng_text.svg';
+import ua_text from './images/ua_text.svg';
+import Header from './components//Header/Header';
+import Main from './pages/Main/Main';
+import About from './pages/About/About';
+import EnterData from './pages/EnterData/EnterData';
 
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
 
 
 function App() {
@@ -12,120 +23,18 @@ function App() {
 
   const { t, i18n } = useTranslation();
 
-  function handleClick(lang){
-    i18n.changeLanguage(lang);
-  }
-
-  function returnValue(){
-    const select1 = document.querySelector('#from').value;
-    const select2 = document.querySelector('#to').value;
-    const select3 = document.querySelector('#date').value;
-
-    let price=0;
-    setPrice(select1);
-    setPrice(select2);
-
-    function setPrice (city){
-      switch (city){
-        case 'Kyiv':
-        case 'Київ':
-          return price+=200;
-        
-        case 'Lviv':
-        case 'Львів':
-          return price+=50;
-        
-        case 'Ternopil':
-        case 'Тернопіль':
-          return price+=75;
-        
-        case 'Ivano-Frankivsk':
-        case 'Івано-Франківськ':
-          return price+=100;
-        
-        default:
-          break;
-          
-      }
-    }
-
-   if(select1 === select2){
-    alert('Ви обрали два одинакових міста')
-   } else{
-    document.querySelector('.pop.from').value = select1;
-    document.querySelector('.pop.to').value = select2;
-    document.querySelector('.pop.date').value = select3;
-    document.querySelector('.pop.price').value = `${price}₴`;
-    setModalActive (true);
-   }
-   
-   
-  }
+  const [text, setText] = React.useState(ua_text);
 
   return (
     <div className="App">
-      <header>
-        <div className="logo">
-          <img src={logo} alt="Logo" />
-        </div>
-        <nav className="nav">
-          <ul>
-            <li>
-              <a class="menu__text" href="#// eslint-disable-next-line">{t('nav.Головна')}</a>
-            </li>
-            <li>
-              <a class="menu__text" href="#// eslint-disable-next-line">{t('nav.Новини')}</a>
-            </li>
-            <li>
-              <a class="menu__text" href="#// eslint-disable-next-line">{t('nav.Про проєкт')}</a>
-            </li>
-            <li>
-              <a class="menu__text" href="#// eslint-disable-next-line">{t('nav.Контакти')}</a>
-            </li>
-          </ul>
-          
-        </nav>
-        <div className="language">
-          
-                <input type="radio" onClick={()=> handleClick('ukr')} name="language" id="ukr" ></input>
-                <label class="changelng" for="ukr">укр</label>
-                <input type="radio" onClick={()=> handleClick('eng')} name="language" id="eng"></input>
-                <label class="changelng" for="eng">eng</label>
-        </div>
-        
-      </header>
-
-      <main>
-        <div className="search">
-          <form>
-            <select className='dropdown' id ="from">
-            <option selected hidden>{t('dropdown.Звідки?')}</option>
-            <option value={t('dropdown.Київ')}>{t('dropdown.Київ')}</option>
-              <option value={t('dropdown.Тернопіль')}>{t('dropdown.Тернопіль')}</option>
-              <option value={t('dropdown.Львів')}>{t('dropdown.Львів')}</option>
-              <option value={t('dropdown.Івано-Франківськ')}>{t('dropdown.Івано-Франківськ')}</option>
-          </select>
-          <select className='dropdown1' id ="to">
-          <option selected hidden>{t('dropdown.Куди?')}</option>
-              <option value={t('dropdown.Київ')}>{t('dropdown.Київ')}</option>
-              <option value={t('dropdown.Тернопіль')}>{t('dropdown.Тернопіль')}</option>
-              <option value={t('dropdown.Львів')}>{t('dropdown.Львів')}</option>
-              <option value={t('dropdown.Івано-Франківськ')}>{t('dropdown.Івано-Франківськ')}</option>
-          </select>
-          <input className='calendar' id ="date" type="date"></input>
-
-          <button type='submit' className='search__btn' onClick = {() => {
-            returnValue()
-            } }>{t('dropdown.Пошук')}</button>
-          </form>
-        </div>
-
-
-        <img className='text' src={text_ukr} alt="text" />
-
-      </main>
+      <Router>
+        <Header t={t} i18n={i18n} setText={setText } ua_text={ua_text} eng_text={eng_text} />
+        <Routes>
+          <Route path="/" element={<Main t={t} text={text} setModalActive={setModalActive}  />} />
+          <Route path="/about" element={ <About/>} />
+          <Route path="/enterdata" element={ <EnterData/>} />
+        </Routes>
       <Modal active={modalActive} setActive={setModalActive}>
-      
         <div className="popup__container">
           <div className="form__item">
             <label class="topraw" for="from">{t('dropdown.Звідки?')}</label>
@@ -145,14 +54,15 @@ function App() {
           </div>
           
           <div className="form__item">
-            <button className='order__btn' id="btn">Замовити</button>
+          <Link to="enterdata">
+              <button className='order__btn' id="btn" onClick={() => setModalActive(false)}>
+                  Замовити
+              </button>
+            </Link>
           </div>
-
-          
         </div>
-        
       </Modal>
-  
+      </Router>
     </div>
   );
 }
