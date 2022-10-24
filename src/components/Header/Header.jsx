@@ -16,27 +16,31 @@ const Header = ({t, i18n, setText, ua_text, eng_text}) => {
     return (
         <header>
         <div className="logo">
+        <Link to="/" className="logo">
           <img src={logo} alt="Logo" />
+        </Link>       
         </div>
         <nav className="nav">
           <ul>
             <li>
-            <Link to="/" class="menu__text">
+              <Link to="/" className="menu__text">
                 {t('nav.Головна')}
-            </Link>              
-            {/* <a class="menu__text" href="/">{t('nav.Головна')}</a> */}
+              </Link>              
             </li>
             <li>
-            <Link to="/about" class="menu__text">
+              <Link to="/news" className="menu__text">
                 {t('nav.Новини')}
-            </Link>
-              {/* <a class="menu__text" href="/">{t('nav.Новини')}</a> */}
+              </Link>
             </li>
             <li>
-              <a class="menu__text" href="/">{t('nav.Про проєкт')}</a>
+              <Link to="/about" className="menu__text">
+                {t('nav.Про проєкт')}
+              </Link>
             </li>
             <li>
-              <a class="menu__text" href="/">{t('nav.Контакти')}</a>
+              <Link to="/contacts" className="menu__text">
+                {t('nav.Контакти')}
+              </Link>
             </li>
           </ul>
           
@@ -48,13 +52,13 @@ const Header = ({t, i18n, setText, ua_text, eng_text}) => {
                   onClickText('ukr');
                   }} 
                   name="language" id="ukr" ></input>
-                <label class="changelng" for="ukr">укр</label>
+                <label className="changelng" for="ukr">укр</label>
                 <input type="radio" onClick={()=> {
                   handleClick('eng');
                   onClickText('eng');
                 }}
                 name="language" id="eng"></input>
-                <label class="changelng" for="eng">eng</label>
+                <label className="changelng" for="eng">eng</label>
         </div>   
       </header>
     )

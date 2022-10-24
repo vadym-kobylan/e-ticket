@@ -6,7 +6,9 @@ import eng_text from './images/eng_text.svg';
 import ua_text from './images/ua_text.svg';
 import Header from './components//Header/Header';
 import Main from './pages/Main/Main';
+import News from './pages/News/News';
 import About from './pages/About/About';
+import Contacts from './pages/Contacts/Contacts';
 import EnterData from './pages/EnterData/EnterData';
 
 
@@ -31,25 +33,31 @@ function App() {
         <Header t={t} i18n={i18n} setText={setText } ua_text={ua_text} eng_text={eng_text} />
         <Routes>
           <Route path="/" element={<Main t={t} text={text} setModalActive={setModalActive}  />} />
+          <Route path="/news" element={ <News/>} />
           <Route path="/about" element={ <About/>} />
+          <Route path="/contacts" element={ <Contacts/>} />
           <Route path="/enterdata" element={ <EnterData/>} />
         </Routes>
       <Modal active={modalActive} setActive={setModalActive}>
         <div className="popup__container">
           <div className="form__item">
-            <label class="topraw" for="from">{t('dropdown.Звідки?')}</label>
+            <label className="topraw" for="from">{t('dropdown.Звідки?')}</label>
             <input className='pop from' type="text" disabled id="from"></input>
           </div>
           <div className="form__item">
-            <label class="topraw" for="where">{t('dropdown.Куди?')}</label>
+            <label className="topraw" for="where">{t('dropdown.Куди?')}</label>
             <input className='pop to' type="text" disabled id="where"></input>
           </div>
           <div className="form__item">
-            <label class="topraw" for="date">{t('dropdown.Дата')}</label>
+            <label className="topraw" for="date">{t('dropdown.Час')}</label>
+            <input className='pop time' type="text" disabled id="time"></input>
+          </div>
+          <div className="form__item">
+            <label className="topraw" for="date">{t('dropdown.Дата')}</label>
             <input className='pop date' type="date" disabled id="date"></input>
           </div>
           <div className="form__item">
-            <label class="topraw" for="price">{t('dropdown.Ціна')}</label>
+            <label className="topraw" for="price">{t('dropdown.Ціна')}</label>
             <input className='pop price' type="text" disabled  id="price"></input>
           </div>
           

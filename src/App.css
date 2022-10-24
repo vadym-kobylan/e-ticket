@@ -8,6 +8,14 @@
 }
 
 @font-face {
+    font-family: e-Ukraine-bold;
+    font-display: swap;
+    src: url("../src/fonts/e-Ukraine-Bold.woff2") format("woff2"), url("../src/fonts/e-Ukraine-Bold.woff") format("woff");
+    font-weight: 600;
+    font-style: bold;
+}
+
+@font-face {
     font-family: e-Ukraine-reg;
     font-display: swap;
     src: url("../src/fonts/e-Ukraine-Regular.woff2") format("woff2"), url("../src/fonts/e-Ukraine-Regular.woff") format("woff");
@@ -262,6 +270,17 @@ main{
 
 .pop.date{
     height: 26px;
+    width: 100px;
+}
+
+.pop.time{
+    width: 60px;
+    text-align: center;
+}
+
+.pop.price{
+    width: 70px;
+    text-align: center;
 }
 
 .order__btn{
@@ -291,3 +310,128 @@ main{
     display:grid;
     justify-content:center;
 }
+
+/*-------------InputData--------------*/
+
+.full__container{
+    padding-top: 79px;
+    padding-left: 120px;
+}
+
+.maintext{
+    font-family: e-Ukraine-bold;
+    font-size: 20px;
+    color: #605DEC;
+}
+
+.subtext{
+    font-family: e-Ukraine;
+    font-size: 17px;
+    color: #7C8DB0;
+    margin-top: 18px;
+}
+
+.text{
+    color: #6E7491;
+    font-family: e-Ukraine-reg;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.input{
+    height:     30px;
+    font-family: e-Ukraine;
+    font-size: 15px;
+    width: 160px;
+    margin-right: 15px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: 1px solid grey;
+    margin-top: 18px;
+}
+
+.input.type{
+    height: 34px;
+}
+
+.input.bigger{
+    width: 240px;
+}
+
+.order__btn.two{
+    margin-top: 18px;
+    height: 34px;
+    width: 120px;
+}
+
+
+
+.trains{
+    width: 100vw;
+    position: relative;
+    top: 170px; 
+}
+
+.ticket{
+    border: #605DEC 2px dashed ;
+    border-radius: 4px;
+    padding: 10px;
+    margin: -20px;
+
+}
+
+h4{
+    margin: 0;
+    padding: 10px;
+    padding-left: 0;
+}
+
+.price{
+    color: #4e4be7;
+    font-family: e-Ukraine-reg;
+    text-align: center;
+}
+
+.price.popo{
+    text-align: left;
+}
+
+
+
+/*----------------Modal----------------*/
+.modal{
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.modal.active { 
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal__content{
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    width: 50vw;
+    transform: scale(0.5);
+    margin: 0 40px;
+    transition: 0.4s all;
+    padding: 50px;
+}
+
+
+.modal__content.active {
+    transform: scale(1);
+}
+
